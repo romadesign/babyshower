@@ -8,7 +8,7 @@
     <br>
     todos los productos
     <div class="row">
-        <?php getProducts() ?>
+        <?php getProductsadmin() ?>
     </div>
 </div>
 
