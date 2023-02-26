@@ -4,27 +4,78 @@
 }
 
 body {
-    background-color: #92ffbc21 !important;
+    background-color: #f3eeeb !important;
+}
+.navbar {
+    position: fixed !important;
+    width: 100% !important;
+    z-index: 2 !important;
+    background: #b59e8f !important;
+    top: 0 !important;
+}
+.navbar-toggler:focus{
+    box-shadow:none !important;
 }
 
+.navbar-brand{
+    margin: 0 !important;
+    padding: 1rem;
+}
+
+.content_two{
+    display: none;
+}
+.content_one{
+    display: block;
+}
+.content_name {
+    width: 100% !important;
+}
+
+.content_name img {
+    width: 100%;
+    padding-bottom: 1rem;
+    border-radius: 1rem;
+}
+.navbar-toggler {
+    border: 1px solid #ffffff00 !important;
+}
+
+.accordion-button{
+    background-color: #ffffff !important;
+}
+.day{
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 13px;
+    right: 0;
+}
+#day_data{
+    background-color: rgb(29, 29, 29);
+    color: white;
+    padding: 0.2rem 0.9rem;
+}
 .card {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border: 0px !important;
-    background-color: #f0fff6 !important;
+    position: absolute;
 }
 .card-text {
     font-size: 0.9rem;
     font-weight: 500;
     color: #2c2c2c;
 }
+
+
 .buttons {
     display: grid;
     width: 100%;
     gap: 0.4rem;
 }
 .btn-primary {
-    color: #272727 !important;
-    background-color: #f0fff6 !important;
+    color: #ffffff !important;
+    background-color: #b59e8f !important;
     border: 0px !important;
     font-weight: 500 !important;
     font-size: 0.8rem !important;
@@ -41,8 +92,8 @@ body {
 }
 
 .btn-primary:hover {
-    color: #272727 !important;
-    background-color: #4cf58f !important;
+    color: white !important;
+    background-color: #997c69 !important;
     border: 0px !important;
     font-weight: 500 !important;
     font-size: 0.8rem !important;
@@ -60,10 +111,11 @@ body {
 .content_data_categorias {
     display: flex;
     margin-bottom: 1rem;
-    gap: 1rem;
+    gap: 0.5rem;
     width: revert;
     overflow-x: scroll;
     align-items: center;
+    padding-bottom: 1rem;
 }
 
 .image_product_width {
@@ -79,11 +131,14 @@ body {
     grid-template-columns: 0.1fr 0.1fr 1fr 0.1fr;
 }
 
-
+.pagination{
+    justify-content: center;
+    margin-top: 1rem;
+}
 
 .content_products_sincomprar {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
     gap: 1rem;
 }
 
@@ -110,11 +165,10 @@ body {
     }
 
     .image_product {
-        max-width: -webkit-fill-available !important;
-        height: 187px;
-        object-fit: cover;
-        display: flex;
-        margin: 1rem;
+        width: 100% !important;
+    object-fit: contain;
+    display: flex;
+    margin: 1rem;
     }
 
 }
@@ -131,15 +185,69 @@ body {
         grid-template-columns: 1fr 1fr;
     }
     .image_product{
-        height: 274px;
+        width: 100%;
     }
 }
 
+
 @media (max-width: 390px) {
-    .image_product{
+    /* .image_product{
         height: 274px;
-    }
+    } */
     .content_products_sincomprar {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr ;
     }
+    p.card-text.fst-italic {
+        font-size: 0.7rem;
+    }
+   
+}
+
+.content_navbar{
+    display: flex;
+    width: 100% !important;
+}
+@media (max-width: 992px) {
+    .content_navbar{
+        display: block;
+    }
+    .content_one{
+        display: none;
+    }
+    .content_two{
+        display: block;
+    }
+    
+}
+
+
+.countdown-container {
+    padding: 20px;
+    background-color: #222222;
+    margin-bottom: 20px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+ 
+.countdown-container .number {
+    font-size: 32px;
+    text-align: center;
+    padding-top: 20px;
+    color: #FFFFFF;
+    background-color: #000000;
+    height: 90px;
+}
+ 
+.countdown-container .concept {
+    font-size: 28px;
+    text-align: center;
+    color: #000000;
+}
+
+
+
+.active>.page-link {
+    background-color: #9f7e68 !important;
+    border-color: #9f7e68 !important;
 }
