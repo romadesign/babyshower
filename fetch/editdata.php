@@ -58,7 +58,7 @@ function updateProduct()
             </select>
           </div>
           <div class="form-group">
-            <spam>Ingresa 0 para que sea visible o 1 para que no aparezca</spam>
+            <spam>Ingresa 1 para que sea visible o 0 para que no aparezca</spam>
             <input type="number" class="form-control" name="status" placeholder="status:" required>
           </div>
           <div class="d-flex">

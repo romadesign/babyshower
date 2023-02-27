@@ -25,6 +25,33 @@ function getProductsadmin()
 <?php }
 }
 
+
+function listas()
+{
+  include('db/dbconnect.php');
+  $sql = "SELECT * FROM `product_list`";
+  $result = mysqli_query($conn, $sql);
+  while ($row = mysqli_fetch_assoc($result)) {
+    $id = $row['id'];
+    $descripcion = $row['descripcion'];
+    $estado = $row['estado']; ?>
+<table class="table">
+  <tbody>
+    <tr class="content_data_get_list">
+      <th scope="row"><?php echo $row['id'] ?></th>
+      <td>
+        <p class="card-text fst-italic ">Title: <?php echo substr($descripcion, 0, 500) ?>.. </p>
+      </td>
+      <td>
+        <a href="editarproductlist.php?id=<?php echo $id ?>"><i class="fas fa-edit"></i></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<?php }
+}
+
+
 function getCategories()
 { ?>
 <a class="btn btn-danger" href="otrascategorias.php?id=TRUE">comprados</a>
@@ -49,17 +76,17 @@ function getCategories()
 function getListas()
 { ?>
 <div class="accordion accordion-flush" id="accordionFlushExample">
-<?php  include('db/dbconnect.php');
+  <?php  include('db/dbconnect.php');
   $sql = "SELECT * FROM `listas`";
   $result = mysqli_query($conn, $sql);
   while ($row = mysqli_fetch_assoc($result)) {
     $id = $row['id'];
     $title = $row['title']; ?>
-<div class="content_categorias">
-  <div class="card">
-    <a class="btn" href="categoriaproducts.php?id=<?php echo $id ?>"><?php echo $title ?></a>
+  <div class="content_categorias">
+    <div class="card">
+      <a class="btn" href="categoriaproducts.php?id=<?php echo $id ?>"><?php echo $title ?></a>
+    </div>
   </div>
-</div>
 </div>
 <?php } 
 }

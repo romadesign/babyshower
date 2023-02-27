@@ -292,3 +292,8 @@ h2.text-center {
     background-color: #9f7e68 !important;
     border-color: #9f7e68 !important;
 }
+
+.content_data_get_list{
+    display: grid;
+    grid-template-columns: 0.1fr 12fr 1fr;
+}
