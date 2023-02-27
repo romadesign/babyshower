@@ -44,7 +44,7 @@ function updateProductlist()
             </select>
           </div>
           <div class="form-group">
-            <spam>Ingresa 1 para que sea visible o 0 para que no aparezca</spam>
+            <spam>Ingresa 0 para marcar o 1 para desmarcar</spam>
             <input type="number" class="form-control" name="estado" placeholder="estado: " required>
           </div>
           <div class="d-flex">
