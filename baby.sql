@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-02-2023 a las 13:36:56
+-- Tiempo de generación: 27-02-2023 a las 13:37:23
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.0.23
 
@@ -38,9 +38,35 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `nombre`, `descripcion`) VALUES
-(1, 'cat 1', 'test1t'),
-(2, 'cat 2', 'test2'),
-(3, 'categoria post', 'adasdasda');
+(1, 'cat', 'test1t'),
+(2, 'cat      ', 'test2'),
+(3, 'category', 'adasdasda');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `listas`
+--
+
+CREATE TABLE `listas` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `listas`
+--
+
+INSERT INTO `listas` (`id`, `title`) VALUES
+(1, 'ropa'),
+(2, 'zapatos'),
+(3, 'test'),
+(4, 'test4'),
+(5, 'test 6'),
+(6, 'test 7'),
+(7, 'test 8'),
+(8, 'test 7'),
+(9, 'asdasdsadasd');
 
 -- --------------------------------------------------------
 
@@ -65,11 +91,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `url`, `img`, `created_at`, `updated_at`, `categoria_id`, `user_id`, `status`) VALUES
-(1, 'FedMois Calcetines Antideslizantes de Algodón para Bebé Niño Niña Pack de 5', 'https://www.amazon.es/dp/B0B74LCNGQ/ref=br_dsk_vv_itemdt_dp?colid=3MSQ1LT935SH&coliid=I1J7KZT7QNXCGJ&psc=1', 'https://m.media-amazon.com/images/I/71LAPDyWe3L._AC_UX679_.jpg', '2023-02-23 17:45:20', '2023-02-24 12:06:28', 1, 1, 1),
+(1, 'FedMois Calcetines Antideslizantes de Algodón para Bebé Niño Niña Pack de 5', 'https://www.amazon.es/dp/B0B74LCNGQ/ref=br_dsk_vv_itemdt_dp?colid=3MSQ1LT935SH&coliid=I1J7KZT7QNXCGJ&psc=1', 'https://m.media-amazon.com/images/I/71LAPDyWe3L._AC_UX679_.jpg', '2023-02-23 17:45:20', '2023-02-27 09:16:16', 1, 1, 0),
 (2, 'COSTWAY Trona para Bebé Altura Ajustable Silla Alta con Cinturón de Seguridad y Bandeja Extraíble para Comedor Jugar Trona Portátil Evolutiva Bebé (Gris)', 'https://www.amazon.es/dp/B0897M56MC/ref=br_dsk_vv_itemdt_dp?colid=3MSQ1LT935SH&coliid=IJBFGECSPNUWA&psc=1', 'https://m.media-amazon.com/images/I/51cCp7gGq5L._AC_SY355_.jpg', '2023-02-23 17:45:20', '2023-02-24 12:11:38', 2, 1, 1),
 (3, 'Twistshake Bathtub', 'https://twistshake.com/es/p/complete-bathroom-set', 'https://products.twistshake.com/images/683_ea0cba648b-big-bath-bundle-1-original.jpg?q=70&w=500&fm=jpg&bg=FAFAFA&auto=format 500w, https://products.twistshake.com/images/683_ea0cba648b-big-bath-bundle-1-original.jpg?q=70&w=767&fm=jpg&bg=FAFAFA&auto=format', '2023-02-23 17:45:24', '2023-02-24 10:03:38', 1, 1, 0),
 (4, 'OESSUF Plato de Bambú para Bebés con Ventosa de Silicona, Juego de Vajilla Infantil para Aprender a Comer para El Destete Dirigido por El Bebe (Elefante, verde)', 'https://www.amazon.es/dp/B0B3LNMXK4/ref=br_dsk_vv_itemdt_dp?colid=3MSQ1LT935SH&coliid=I9B6385A97LED&psc=1', 'https://m.media-amazon.com/images/I/71zMWiLtnSL._AC_SX522_.jpg', '2023-02-23 17:45:24', '2023-02-24 10:03:41', 2, 1, 0),
-(5, 'Nido de bebé, Reductor de Cuna Nido Bebe Recién 78x52cm, Nido de Bebé Plegable con Cojín Cubierta Extraíble Portátil para Viajes', 'https://www.amazon.es/dp/B0B77C6W9T/ref=br_dsk_vv_itemdt_dp?colid=3MSQ1LT935SH&coliid=IG9ZD730SKTM3', 'https://m.media-amazon.com/images/I/61FjAlVJW+L._AC_SX522_.jpg', '2023-02-23 20:44:00', '2023-02-24 10:03:43', 1, 1, 0),
+(5, 'telas 1', '', '', '2023-02-23 20:44:00', '2023-02-27 12:21:08', 1, 1, 0),
 (6, 'Hakuna Matte Gran Alfombra Puzzle para Niños 1,8x1,2m Elegante Alfombra Bebe para Gatear, Jugar y Yoga - Certificado EN-71, Sin Olor – 48 Piezas y 20 Bordes Empaque Caja de Cartón Reciclable', 'https://www.amazon.es/dp/B081D4Y32M/ref=br_dsk_vv_itemdt_dp?colid=3MSQ1LT935SH&coliid=I1AHXWL7TM806Z&psc=1', 'https://m.media-amazon.com/images/I/81UEp9oQXtL._AC_SY355_.jpg', '2023-02-23 20:44:07', '2023-02-24 10:03:45', 2, 1, 0),
 (9, 'Babify Alfombra de Juegos para bebés espesor 1 cm, plegable, antideslizante, extragrande, reversible, impermeable, portátil, de doble cara (180x200x1.0cm) - Modelo Dinos + Tiger Baby', 'https://www.amazon.es/dp/B09BNLN2W9/ref=br_dsk_vv_item_seebyopt?colid=3MSQ1LT935SH&coliid=IX5BYMTNGQQNH', 'https://m.media-amazon.com/images/I/81w3hyW7aML._AC_SX425_.jpg', '2023-02-23 20:47:28', '2023-02-24 10:03:47', 1, 1, 0),
 (10, 'Babify Alfombra de Juegos para bebés espesor 1 cm, plegable, antideslizante, extragrande, reversible, impermeable, portátil, de doble cara, para niños pequeños y bebés (180x200x1.0cm), Multicolor', 'https://www.amazon.es/dp/B07XNFS18W/ref=br_dsk_vv_itemdt_dp?colid=3MSQ1LT935SH&coliid=I2ZQ41LU6VCNH4&psc=1', 'https://m.media-amazon.com/images/I/81nY7XLrTkL._AC_SY355_.jpg', '2023-02-23 20:47:28', '2023-02-24 10:03:48', 2, 1, 0),
@@ -97,7 +123,33 @@ INSERT INTO `products` (`id`, `title`, `url`, `img`, `created_at`, `updated_at`,
 (42, 'editado ', 'editado', 'asd asdeditado sd', '2023-02-24 10:39:58', '2023-02-24 11:33:48', 3, 1, 0),
 (43, 'test status', 'test status', 'test status', '2023-02-24 12:14:16', '2023-02-24 12:14:16', 2, 1, 0),
 (44, 'holaa a ', 'as dasd asd asdasd', 'as dasd', '2023-02-24 12:15:09', '2023-02-24 12:16:37', 3, 1, 0),
-(45, 'jedita', 'asdsadasd11', 'dasdasdas', '2023-02-24 12:15:41', '2023-02-24 12:24:12', 1, 1, 1);
+(45, 'jedita', 'asdsadasd11', 'dasdasdas', '2023-02-24 12:15:41', '2023-02-24 12:24:12', 1, 1, 1),
+(46, 'test 4334 3', 'asdadsada', 'asdasdas', '2023-02-27 09:55:13', '2023-02-27 09:55:13', 3, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `product_list`
+--
+
+CREATE TABLE `product_list` (
+  `id` int(11) NOT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT NULL,
+  `list_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `product_list`
+--
+
+INSERT INTO `product_list` (`id`, `descripcion`, `estado`, `list_id`) VALUES
+(1, 'polo', 0, 1),
+(2, 'polo manga corta', 1, 1),
+(3, 'editado 200', 1, 1),
+(4, 'telas', 1, 1),
+(5, 'telas', 1, 1),
+(6, 'asdasd', 1, 8);
 
 -- --------------------------------------------------------
 
@@ -156,12 +208,24 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `listas`
+--
+ALTER TABLE `listas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
   ADD KEY `categoria_id` (`categoria_id`),
   ADD KEY `fk_user_id` (`user_id`);
+
+--
+-- Indices de la tabla `product_list`
+--
+ALTER TABLE `product_list`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `purchases`
@@ -190,10 +254,22 @@ ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `listas`
+--
+ALTER TABLE `listas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- AUTO_INCREMENT de la tabla `product_list`
+--
+ALTER TABLE `product_list`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `purchases`
