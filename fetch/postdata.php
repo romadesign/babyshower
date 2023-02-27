@@ -16,7 +16,6 @@ function createProduct()
         $resultado = mysqli_query($conn, $query);
           
         header("Location: ./createproduct.php");
-        exit();
     }
 }
 
@@ -27,12 +26,46 @@ function createCategorie()
     if (isset($_POST['createCategorie'])) {
         $nombre = $_POST["nombre"];
         $descripcion = $_POST["descripcion"];
+        $estado = $_POST["estado"];
 
-        $query = "INSERT INTO categories (nombre, descripcion) 
-                  VALUES ('$nombre', '$descripcion')";
+        $query = "INSERT INTO categories (nombre, descripcion, estado) 
+                  VALUES ('$nombre', '$descripcion', '$estado')";
         $resultado = mysqli_query($conn, $query);
           
         header("Location: ./createproduct.php");
-        exit();
+    }
+}
+
+
+
+function createList()
+{
+    include('db/dbconnect.php');
+    if (isset($_POST['createList'])) {
+        $title = $_POST["title"];
+
+        $query = "INSERT INTO listas (title) 
+                  VALUES ('$title')";
+        $resultado = mysqli_query($conn, $query);
+          
+        header("Location: ./createproduct.php");
+    }
+}
+
+
+
+function createListproduct()
+{
+    include('db/dbconnect.php');
+    if (isset($_POST['createItemList'])) {
+        $descripcion = $_POST["descripcion"];
+        $list_id = $_POST["list_id"];
+        $estado = $_POST["estado"];
+        $query = "INSERT INTO product_list (descripcion, list_id, estado) 
+                  VALUES ('$descripcion', '$list_id', '$estado')";
+        $resultado = mysqli_query($conn, $query);
+          
+        header("Refresh:0"); 
+        echo "<script>location.reload();</script>";
     }
 }

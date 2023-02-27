@@ -9,18 +9,18 @@ function getProductsadmin()
     $img = $row['img'];
     $url = $row['url']; ?>
 <table class="table">
-    <tbody>
-        <tr class="content_data_get">
-            <th scope="row"><?php echo $row['id'] ?></th>
-            <td><img class="image_product_width" src="<?php echo $img ?>"></td>
-            <td>
-                <p class="card-text fst-italic ">Title: <?php echo substr($title, 0, 100) ?>.. </p>
-            </td>
-            <td>
-                <a href="editarproduct.php?id=<?php echo $row['id'] ?>"><i class="fas fa-edit"></i></a>
-            </td>
-        </tr>
-    </tbody>
+  <tbody>
+    <tr class="content_data_get">
+      <th scope="row"><?php echo $row['id'] ?></th>
+      <td><img class="image_product_width" src="<?php echo $img ?>"></td>
+      <td>
+        <p class="card-text fst-italic ">Title: <?php echo substr($title, 0, 100) ?>.. </p>
+      </td>
+      <td>
+        <a href="editarproduct.php?id=<?php echo $row['id'] ?>"><i class="fas fa-edit"></i></a>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <?php }
 }
@@ -38,9 +38,28 @@ function getCategories()
     $nombre = $row['nombre'];
     $descripcion = $row['descripcion']; ?>
 <div class="content_categorias">
-    <div class="card">
-        <a class="btn" href="categoriaproducts.php?id=<?php echo $id ?>"><?php echo $nombre ?></a>
-    </div>
+  <div class="card">
+    <a class="btn" href="categoriaproducts.php?id=<?php echo $id ?>"><?php echo $nombre ?></a>
+  </div>
+</div>
+<?php } 
+}
+
+
+function getListas()
+{ ?>
+<div class="accordion accordion-flush" id="accordionFlushExample">
+<?php  include('db/dbconnect.php');
+  $sql = "SELECT * FROM `listas`";
+  $result = mysqli_query($conn, $sql);
+  while ($row = mysqli_fetch_assoc($result)) {
+    $id = $row['id'];
+    $title = $row['title']; ?>
+<div class="content_categorias">
+  <div class="card">
+    <a class="btn" href="categoriaproducts.php?id=<?php echo $id ?>"><?php echo $title ?></a>
+  </div>
+</div>
 </div>
 <?php } 
 }
@@ -49,10 +68,11 @@ function getCategories()
 
 
 
+
 function getTodosLosProductos()
 { ?>
 <div class="content_products_sincomprar">
-    <?php  include('db/dbconnect.php');
+  <?php  include('db/dbconnect.php');
 
   $sql = "SELECT * FROM `products`";
   // $sql = "SELECT p.* FROM products p
@@ -82,34 +102,34 @@ function getTodosLosProductos()
     $url = $row['url']; 
 
     ?>
-    <div class="">
-        <div class="card">
-            <img class="image_product" src="<?php echo $img ?>">
-            <div class="card-body product_detail">
-                <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?>.. </p>
-                <div class="buttons">
+  <div class="">
+    <div class="card">
+      <img class="image_product" src="<?php echo $img ?>">
+      <div class="card-body product_detail">
+        <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?>.. </p>
+        <div class="buttons">
 
-                    <?php 
+          <?php 
   $sqls = "SELECT * FROM `purchases` WHERE product_id = $id" ;
   $results = $conn->query($sqls);
   $data = $results->fetch_assoc();
-  if($data['product_id'] == $id){?>
-                    <a href="" class="button-position btn btn-primary-comprado">comprado &#x2713; </a>
-                    <?php }else{ ?>
-                    <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
-                    <?php } ?>
-                </div>
-            </div>
+  if(isset($data['product_id'])== $id){?>
+          <a href="" class="button-position btn btn-primary-comprado">comprado &#x2713; </a>
+          <?php }else{ ?>
+          <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
+          <?php } ?>
         </div>
+      </div>
     </div>
-    <?php } ?>
+  </div>
+  <?php } ?>
 </div>
 <div class="content_pagination">
-    <!-- Pagination button -->
-    <nav>
-        <ul class="pagination">
-            <li class="page-item"></li>
-            <?php
+  <!-- Pagination button -->
+  <nav>
+    <ul class="pagination">
+      <li class="page-item"></li>
+      <?php
 						for ($i = 1; $i <= $no_of_pages; $i++) {
 							$pageName = basename($_SERVER["PHP_SELF"]);
 							if ($page == $i) {
@@ -126,9 +146,9 @@ function getTodosLosProductos()
 							";
 							}
 						} ?>
-            <li class="page-item"></li>
-        </ul>
-    </nav>
+      <li class="page-item"></li>
+    </ul>
+  </nav>
 </div>
 
 
@@ -136,7 +156,7 @@ function getTodosLosProductos()
 function getTodosLosProductosComprados()
 { ?>
 <div class="content_products_sincomprar">
-    <?php  include('db/dbconnect.php');
+  <?php  include('db/dbconnect.php');
 
   $sql = "SELECT * FROM `products`";
   // $sql = "SELECT p.* FROM products p
@@ -166,34 +186,34 @@ function getTodosLosProductosComprados()
     $url = $row['url']; 
 
     ?>
-    <div class="">
-        <div class="card">
-            <img class="image_product" src="<?php echo $img ?>">
-            <div class="card-body product_detail">
-                <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?>.. </p>
-                <div class="buttons">
+  <div class="">
+    <div class="card">
+      <img class="image_product" src="<?php echo $img ?>">
+      <div class="card-body product_detail">
+        <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?>.. </p>
+        <div class="buttons">
 
-                    <?php 
+          <?php 
   $sqls = "SELECT * FROM `purchases` WHERE product_id = $id" ;
   $results = $conn->query($sqls);
   $data = $results->fetch_assoc();
-  if($data['product_id'] == $id){?>
-                    <a href="" class="button-position btn btn-primary-comprado">comprado &#x2713; </a>
-                    <?php }else{ ?>
-                    <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
-                    <?php } ?>
-                </div>
-            </div>
+  if(isset($data['product_id']) == $id){?>
+          <a href="" class="button-position btn btn-primary-comprado">comprado &#x2713; </a>
+          <?php }else{ ?>
+          <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
+          <?php } ?>
         </div>
+      </div>
     </div>
-    <?php } ?>
+  </div>
+  <?php } ?>
 </div>
 <div class="content_pagination">
-    <!-- Pagination button -->
-    <nav>
-        <ul class="pagination">
-            <li class="page-item"></li>
-            <?php
+  <!-- Pagination button -->
+  <nav>
+    <ul class="pagination">
+      <li class="page-item"></li>
+      <?php
 						for ($i = 1; $i <= $no_of_pages; $i++) {
 							$pageName = basename($_SERVER["PHP_SELF"]);
 							if ($page == $i) {
@@ -210,9 +230,9 @@ function getTodosLosProductosComprados()
 							";
 							}
 						} ?>
-            <li class="page-item"></li>
-        </ul>
-    </nav>
+      <li class="page-item"></li>
+    </ul>
+  </nav>
 </div>
 
 
@@ -220,7 +240,7 @@ function getTodosLosProductosComprados()
 function todoslosproductoscategoria()
 { ?>
 <div class="content_products_sincomprar">
-    <?php  include('db/dbconnect.php');
+  <?php  include('db/dbconnect.php');
   if (isset($_GET['id'])) {
     $id_get = $_GET["id"];
     $sql = "SELECT * FROM `products` WHERE categoria_id = $id_get";
@@ -231,38 +251,38 @@ function todoslosproductoscategoria()
 			$img = $row['img'];
 			$url = $row['url']; 
 			?>
-    <div class="">
-        <div class="card">
-            <img class="image_product" src="<?php echo $img ?>">
-            <div class="card-body product_detail">
-                <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?>.. </p>
-                <div class="buttons">
+  <div class="">
+    <div class="card">
+      <img class="image_product" src="<?php echo $img ?>">
+      <div class="card-body product_detail">
+        <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?>.. </p>
+        <div class="buttons">
 
-                    <?php 
+          <?php 
   $sqls = "SELECT * FROM `purchases` WHERE product_id = $id" ;
   $results = $conn->query($sqls);
   $data = $results->fetch_assoc();
-  if($data['product_id'] == $id){?>
-                    <a href="" class="button-position btn btn-primary-comprado">comprado &#x2713; </a>
-                    <?php }else{ ?>
-                    <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
-                    <?php } ?>
-                </div>
-            </div>
+  if(isset($data['product_id']) == $id){?>
+          <a href="" class="button-position btn btn-primary-comprado">comprado &#x2713; </a>
+          <?php }else{ ?>
+          <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
+          <?php } ?>
         </div>
+      </div>
     </div>
-    <?php
+  </div>
+  <?php
 		}
 		}
 	} 
 ?>
 
 
-    <?php 
+  <?php 
 function otrasCategorias()
 {  ?>
-<div class="content_products_sincomprar">
-<?php
+  <div class="content_products_sincomprar">
+    <?php
   include('db/dbconnect.php');
   if (isset($_GET['id'])) {
     $id_get = $_GET["id"];
@@ -276,25 +296,25 @@ function otrasCategorias()
 			$img = $row['img'];
 			$url = $row['url']; 
 			?>
-			<div class="">
-        <div class="card">
-            <img class="image_product" src="<?php echo $img ?>">
-            <div class="card-body product_detail">
-                <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?>.. </p>
-                <div class="buttons">
+    <div class="">
+      <div class="card">
+        <img class="image_product" src="<?php echo $img ?>">
+        <div class="card-body product_detail">
+          <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?>.. </p>
+          <div class="buttons">
 
-                    <?php 
+            <?php 
   $sqls = "SELECT * FROM `purchases` WHERE product_id = $id" ;
   $results = $conn->query($sqls);
   $data = $results->fetch_assoc();
-  if($data['product_id'] == $id){?>
-                    <a href="" class="button-position btn btn-primary-comprado">comprado &#x2713; </a>
-                    <?php }else{ ?>
-                    <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
-                    <?php } ?>
-                </div>
-            </div>
+  if(isset($data['product_id']) == $id ){?>
+            <a href="" class="button-position btn btn-primary-comprado">comprado &#x2713; </a>
+            <?php }else{ ?>
+            <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
+            <?php } ?>
+          </div>
         </div>
+      </div>
     </div>
     <?php
 		}

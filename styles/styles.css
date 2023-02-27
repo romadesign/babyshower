@@ -3,6 +3,23 @@
     padding: 0;
 }
 
+.form-floating>label{
+    padding: 0rem 0.75rem !important;
+}
+#flush-collapseOne {
+    overflow: scroll;
+    height: 350px !important;
+    z-index: 10003 !important;
+}
+
+.accordion-body {
+    text-transform: capitalize !important;
+}
+
+
+.form-control {
+    margin: 1rem 0 !important;
+}
 body {
     background-color: #f3eeeb !important;
 }
