@@ -16,12 +16,22 @@
     text-transform: capitalize !important;
 }
 
+.accordion-item{
+    top: 0;
+    position: absolute;
+    width: 100%;
+}
+
 
 .form-control {
     margin: 1rem 0 !important;
 }
 body {
     background-color: #f3eeeb !important;
+}
+
+h2.text-center {
+    padding-top: 1rem;
 }
 .navbar {
     position: fixed !important;
@@ -58,8 +68,21 @@ body {
     border: 1px solid #ffffff00 !important;
 }
 
+.content-button-hamburger{
+    display: flex;
+    width: 31%;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+}
 .accordion-button{
     background-color: #ffffff !important;
+    gap: 0.5rem;
+    
+}
+.accordion-button.collapsed {
+    gap: 0.5rem;
 }
 .day{
     position: fixed;
@@ -67,6 +90,7 @@ body {
     align-items: center;
     top: 13px;
     right: 0;
+    z-index: 100;
 }
 #day_data{
     background-color: rgb(29, 29, 29);
