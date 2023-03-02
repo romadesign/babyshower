@@ -9,7 +9,7 @@
         <h3>Faltan <span id="dias"></span> días para mi <strong>Baby shower</strong>!</h3>
     </div>
     <div class="content_data">
-        <strong>Categorias</strong>
+        <strong>Categorías </strong>
         <div class="content_data_categorias">
             <?php getCategories() ?>
         </div>

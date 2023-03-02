@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="content_data">
-        <strong>Categorias</strong>
+        <strong>Categorías  </strong>
         <div class="content_data_categorias">
             <?php getCategories() ?>
         </div>
