@@ -122,6 +122,7 @@ function updateCategoriasproducts()
     $sql = "UPDATE categories set nombre = '$nombre', descripcion = '$descripcion' WHERE id =' $id'";
     $result = $conn->query($sql);
     header("Location: categoriesbyproducts.php");
+
   } ?>
   <div class="form-content">
     <h2 class="mt-3">list Id <?php echo $_GET['id']; ?></h2>
@@ -138,7 +139,7 @@ function updateCategoriasproducts()
           </div>
           <div class="d-flex">
             <button type="submit" name="updatecategorie" class="btn btn-success w-100  m-1">Save</button>
-            <button type="button" class="btn btn-danger w-100  m-1"><a href="/index.php">Cancel</a></button>
+            <button type="button" class="btn btn-danger w-100  m-1"><a href="categoriesbyproducts.php">Cancel</a></button>
           </div>
         </div>
 
