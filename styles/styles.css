@@ -297,3 +297,12 @@ h2.text-center {
     display: grid;
     grid-template-columns: 0.1fr 12fr 1fr;
 }
+.btn_categiria_Editar a{
+    background-color: #c10009;
+    padding: 0 1rem;
+    color: white;
+}
+
+.btn_categiria_Editar{
+    border: 0;
+}

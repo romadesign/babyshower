@@ -59,11 +59,12 @@ function updateProduct()
           </div>
           <div class="form-group">
             <spam>Ingresa 1 para que sea visible o 0 para que no aparezca</spam>
+            <spam>esta opción solo es para que se oculte en las opciones COMPRADOS o Faltan de las categorias en las demás apareceran estando o no en 1 o 0</spam>
             <input type="number" class="form-control" name="status" placeholder="status:" required>
           </div>
           <div class="d-flex">
             <button type="submit" name="update" class="btn btn-success w-100  m-1">Save</button>
-            <button type="button" class="btn btn-danger w-100  m-1"><a href="/index.php">Cancel</a></button>
+            <button type="button" class="btn btn-danger w-100  m-1"><a href="admproducts.php">Cancel</a></button>
           </div>
         </div>
 

@@ -1,14 +1,16 @@
 <?php include './db/dbconnect.php'; ?>
 <?php include_once('template/header.php') ?>
-<?php require('fetch/editdata.php'); ?>
+<?php require('fetch/getdata.php'); ?>
 <div class="container my-3 pt-5 mb-5">
     <div class="col-lg-2 text-center bg-lightmy-3" style="margin:auto;border-top: 2px groove black;border-bottom: 2px groove black;">
-        <h2 class="text-center">Editar producto</h2>
+        <h2 class="text-center">Todas las catogorías</h2>
     </div>
     <br>
-   editar
     <div class="row">
-        <?php updateProduct() ?>
+        <div>
+            <button class="btn_categiria_Editar"> <a href="admproducts.php"> Editar productos</a></button>
+        </div>
+        <?php getCategoriesadmin() ?>
     </div>
 </div>
 
