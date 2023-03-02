@@ -373,29 +373,86 @@ function getListas()
     ?>
 
 
-<?php
- function getCategoriesadmin() //traer para admin
- {
-   include('db/dbconnect.php');
-   $sql = "SELECT * FROM `categories`";
-   $result = mysqli_query($conn, $sql);
-   while ($row = mysqli_fetch_assoc($result)) {
-     $id = $row['id'];
-     $nombre = $row['nombre']; ?>
-     <table class="table">
-       <tbody>
-         <tr class="content_data_get_list">
-           <th scope="row"><?php echo $row['id'] ?></th>
-           <td>
-             <p class="card-text fst-italic ">Categoría: <strong> <?php echo $nombre ?></strong></p>
-           </td>
-           <td>
-             <a href="editcategorieproduct.php?id=<?php echo $id ?>"><i class="fas fa-edit"></i></a>
-           </td>
-         </tr>
-       </tbody>
-     </table>
-   <?php }
- }
- 
+    <?php
+    function getCategoriesadmin() //traer para admin
+    {
+      include('db/dbconnect.php');
+      $sql = "SELECT * FROM `categories`";
+      $result = mysqli_query($conn, $sql);
+      while ($row = mysqli_fetch_assoc($result)) {
+        $id = $row['id'];
+        $nombre = $row['nombre']; ?>
+        <table class="table">
+          <tbody>
+            <tr class="content_data_get_list">
+              <th scope="row"><?php echo $row['id'] ?></th>
+              <td>
+                <p class="card-text fst-italic ">Categoría: <strong> <?php echo $nombre ?></strong></p>
+              </td>
+              <td>
+                <a href="editcategorieproduct.php?id=<?php echo $id ?>"><i class="fas fa-edit"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    <?php }
+    }
+
+    ?>
+
+    <?php 
+    function navbar(){?>
+      
+<nav class="navbar navbar-expand-lg ">
+<div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+        <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            <h2 class="accordion-header" id="flush-headingOne">
+                Listas
+            </h2>
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <?php
+            include('db/dbconnect.php');
+            $sql = "SELECT * FROM `listas`";
+            $result = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_assoc($result)) {
+                $id = $row['id'];
+                $title = $row['title'];
+            ?>
+                <div class="subtitlemenu"><?php echo $title ?> :</div>
+                <div class="accordion-body acordion_data">
+                    <?php
+                    $sql = "SELECT * FROM `product_list` WHERE list_id =  $id";
+                    $sel_query = mysqli_query($conn, $sql)  or die(mysqli_error($conn));
+                    while ($row = mysqli_fetch_assoc($sel_query)) {
+                        $id = $row['id'];
+                        $estado = $row['estado'];
+                        $descripcion = $row['descripcion']; ?>
+                        <div>
+                            <div class="d-flex gap-3 ">
+                                <?php
+                                echo '- ', $descripcion;
+                                if ($estado == 0) { ?>
+                                    <div>&#x2713;</div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+
+</div>
+
+<div class="day">
+    <div id="day_data">
+        40 dias
+    </div>
+</div>
+</nav>
+    <?php }
+    
     ?>

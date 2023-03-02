@@ -21,7 +21,7 @@ function updateProduct()
 
     $sql = "UPDATE products set title = '$title', url = '$url',img = '$img', user_id = '$user_id', categoria_id = '$categoria_id', status ='$status' WHERE id =' $id'";
     $result = $conn->query($sql);
-    header("Location: createproduct.php");
+    header("Location: admproducts.php");
   } ?>
   <div class="form-content">
     <h2 class="mt-3">Procuto Id <?php echo $_GET['id']; ?></h2>
