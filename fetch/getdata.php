@@ -14,7 +14,7 @@ function getProductsadmin()
           <th scope="row"><?php echo $row['id'] ?></th>
           <td><img class="image_product_width" src="<?php echo $img ?>"></td>
           <td>
-            <p class="card-text fst-italic ">Title: <?php echo substr($title, 0, 100) ?>.. </p>
+            <p class="card-text fst-italic ">Title: <?php echo substr($title, 0, 100) ?> </p>
           </td>
           <td>
             <a href="editarproduct.php?id=<?php echo $row['id'] ?>"><i class="fas fa-edit"></i></a>
@@ -40,7 +40,7 @@ function listas()
         <tr class="content_data_get_list">
           <th scope="row"><?php echo $row['id'] ?></th>
           <td>
-            <p class="card-text fst-italic ">Title: <?php echo substr($descripcion, 0, 500) ?>.. </p>
+            <p class="card-text fst-italic ">Title: <?php echo substr($descripcion, 0, 500) ?> </p>
           </td>
           <td>
             <a href="editarproductlist.php?id=<?php echo $id ?>"><i class="fas fa-edit"></i></a>
@@ -64,7 +64,7 @@ function categorias_lista() //para editar categorias
         <tr class="content_data_get_list">
           <th scope="row"><?php echo $row['id'] ?></th>
           <td>
-            <p class="card-text fst-italic ">Categoría: <strong> <?php echo substr($title, 0, 500) ?></strong>.. </p>
+            <p class="card-text fst-italic ">Categoría: <strong> <?php echo substr($title, 0, 500) ?></strong> </p>
           </td>
           <td>
             <a href="editcategorias.php?id=<?php echo $id ?>"><i class="fas fa-edit"></i></a>
@@ -156,7 +156,7 @@ function getListas()
       <div class="card">
         <img class="image_product" src="<?php echo $img ?>">
         <div class="card-body product_detail">
-          <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?>.. </p>
+          <p class="card-text fst-italic "><?php echo substr($title, 0, 50) ?> </p>
           <div class="buttons">
 
             <?php
@@ -240,7 +240,7 @@ function getListas()
         <div class="card">
           <img class="image_product" src="<?php echo $img ?>">
           <div class="card-body product_detail">
-            <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?>.. </p>
+            <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?> </p>
             <div class="buttons">
 
               <?php
@@ -305,7 +305,7 @@ function getListas()
           <div class="card">
             <img class="image_product" src="<?php echo $img ?>">
             <div class="card-body product_detail">
-              <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?>.. </p>
+              <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?> </p>
               <div class="buttons">
 
                 <?php
@@ -350,7 +350,7 @@ function getListas()
             <div class="card">
               <img class="image_product" src="<?php echo $img ?>">
               <div class="card-body product_detail">
-                <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?>.. </p>
+                <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?> </p>
                 <div class="buttons">
 
                   <?php

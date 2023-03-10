@@ -16,6 +16,8 @@ function createProduct()
         $resultado = mysqli_query($conn, $query);
           
         header("Location: ./createproduct.php");
+        exist();
+
     }
 }
 
@@ -33,6 +35,7 @@ function createCategorie()
         $resultado = mysqli_query($conn, $query);
           
         header("Location: ./createproduct.php");
+        exist();
     }
 }
 
@@ -49,6 +52,8 @@ function createList()
         $resultado = mysqli_query($conn, $query);
           
         header("Location: ./createproduct.php");
+        exist();
+
     }
 }
 
@@ -65,7 +70,9 @@ function createListproduct()
                   VALUES ('$descripcion', '$list_id', '$estado')";
         $resultado = mysqli_query($conn, $query);
           
-        header("Refresh:0"); 
-        echo "<script>location.reload();</script>";
+        header("Location: ./createproduct.php");
+
+        exist();
+
     }
 }
