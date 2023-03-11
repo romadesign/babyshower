@@ -77,8 +77,8 @@ function categorias_lista() //para editar categorias
 
 function getCategories() //para filtrar por categorias
 { ?>
-  <a class="btn btn-danger" href="otrascategorias.php?id=TRUE">comprados</a>
-  <a class="btn btn-success" href="otrascategorias.php?id=NULL">Faltan</a>
+  <a class="btn btn-danger" href="otrascategorias.php?id=TRUE">COMPRADO</a>
+  <a class="btn btn-success" href="otrascategorias.php?id=NULL">PENDIENTE</a>
   <?php
   include('db/dbconnect.php');
   $sql = "SELECT * FROM `categories`";
@@ -164,7 +164,7 @@ function getListas()
             $results = $conn->query($sqls);
             $data = $results->fetch_assoc();
             if (isset($data['product_id']) == $id) { ?>
-              <a href="" class="button-position btn btn-primary-comprado">comprado &#x2713; </a>
+              <a href="" class="button-position btn btn-primary-comprado">Comprado &#x2713; </a>
             <?php } else { ?>
               <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
             <?php } ?>
@@ -240,7 +240,7 @@ function getListas()
         <div class="card">
           <img class="image_product" src="<?php echo $img ?>">
           <div class="card-body product_detail">
-            <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?> </p>
+            <p class="card-text fst-italic "><?php echo substr($title, 0, 50) ?> </p>
             <div class="buttons">
 
               <?php
@@ -248,7 +248,7 @@ function getListas()
               $results = $conn->query($sqls);
               $data = $results->fetch_assoc();
               if (isset($data['product_id']) == $id) { ?>
-                <a href="" class="button-position btn btn-primary-comprado">comprado &#x2713; </a>
+                <a href="" class="button-position btn btn-primary-comprado">Comprado &#x2713; </a>
               <?php } else { ?>
                 <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
               <?php } ?>
@@ -305,7 +305,7 @@ function getListas()
           <div class="card">
             <img class="image_product" src="<?php echo $img ?>">
             <div class="card-body product_detail">
-              <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?> </p>
+              <p class="card-text fst-italic "><?php echo substr($title, 0, 50) ?> </p>
               <div class="buttons">
 
                 <?php
@@ -313,7 +313,7 @@ function getListas()
                 $results = $conn->query($sqls);
                 $data = $results->fetch_assoc();
                 if (isset($data['product_id']) == $id) { ?>
-                  <a href="" class="button-position btn btn-primary-comprado">comprado &#x2713; </a>
+                  <a href="" class="button-position btn btn-primary-comprado">Comprado &#x2713; </a>
                 <?php } else { ?>
                   <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
                 <?php } ?>
@@ -338,7 +338,7 @@ function getListas()
         $id_get = $_GET["id"];
         $sql = "SELECT p.* FROM products p
           LEFT JOIN purchases c ON p.id = c.product_id
-          WHERE c.id IS $id_get  AND p.status = 0";
+          WHERE c.id IS $id_get  AND p.status = 1";
         $result = $conn->query($sql);
         while ($row = mysqli_fetch_assoc($result)) {
           $id = $row['id'];
@@ -350,7 +350,7 @@ function getListas()
             <div class="card">
               <img class="image_product" src="<?php echo $img ?>">
               <div class="card-body product_detail">
-                <p class="card-text fst-italic "><?php echo substr($title, 0, 40) ?> </p>
+                <p class="card-text fst-italic "><?php echo substr($title, 0, 50) ?> </p>
                 <div class="buttons">
 
                   <?php
@@ -358,7 +358,7 @@ function getListas()
                   $results = $conn->query($sqls);
                   $data = $results->fetch_assoc();
                   if (isset($data['product_id']) == $id) { ?>
-                    <a href="" class="button-position btn btn-primary-comprado">comprado &#x2713; </a>
+                    <a href="" class="button-position btn btn-primary-comprado">Comprado &#x2713; </a>
                   <?php } else { ?>
                     <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
                   <?php } ?>

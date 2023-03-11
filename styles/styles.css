@@ -44,7 +44,11 @@ i.fa-solid.fa-bars {
     text-transform: uppercase;
     font-weight: 500;
     font-size: 0.8rem;
-    padding-bottom: 0.2rem;
+    padding-top: 0.8rem;
+}
+
+.title{
+    font-size: 0.7rem;
 }
 
 .form-control {

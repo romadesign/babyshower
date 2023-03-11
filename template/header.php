@@ -42,7 +42,7 @@
                                 $estado = $row['estado'];
                                 $descripcion = $row['descripcion']; ?>
                                 <div>
-                                    <div class="d-flex gap-3 ">
+                                    <div class="d-flex gap-3 title">
                                         <?php
                                         echo '- ', $descripcion;
                                         if ($estado == 0) { ?>

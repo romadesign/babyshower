@@ -16,8 +16,6 @@ function createProduct()
         $resultado = mysqli_query($conn, $query);
           
         header("Location: ./createproduct.php");
-        exist();
-
     }
 }
 
@@ -28,14 +26,12 @@ function createCategorie()
     if (isset($_POST['createCategorie'])) {
         $nombre = $_POST["nombre"];
         $descripcion = $_POST["descripcion"];
-        $estado = $_POST["estado"];
 
-        $query = "INSERT INTO categories (nombre, descripcion, estado) 
-                  VALUES ('$nombre', '$descripcion', '$estado')";
+        $query = "INSERT INTO categories (nombre, descripcion) 
+                  VALUES ('$nombre', '$descripcion')";
         $resultado = mysqli_query($conn, $query);
           
         header("Location: ./createproduct.php");
-        exist();
     }
 }
 
@@ -52,8 +48,6 @@ function createList()
         $resultado = mysqli_query($conn, $query);
           
         header("Location: ./createproduct.php");
-        exist();
-
     }
 }
 
@@ -70,9 +64,7 @@ function createListproduct()
                   VALUES ('$descripcion', '$list_id', '$estado')";
         $resultado = mysqli_query($conn, $query);
           
-        header("Location: ./createproduct.php");
-
-        exist();
-
+        header("Refresh:0"); 
+        echo "<script>location.reload();</script>";
     }
 }
