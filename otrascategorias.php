@@ -1,4 +1,4 @@
-<?php include './db/dbconnect.php'; ?>
+<?php include './db/dbconnect.php'; session_start();?>
 <?php include_once('template/header.php') ?>
 <?php require('fetch/getdata.php'); ?>
 <div class="container my-3 pt-5 mb-5">
@@ -14,6 +14,18 @@
             <?php getCategories() ?>
         </div>
         <div >
+            <?php 
+            
+            if(isset($_SESSION['mensaje'])) { ?>
+                <div class="alert alert-success  alert-dismissible fade show" role="alert">
+                <strong class="text-center" style="font-size: 0.8rem;"><?php echo $_SESSION['mensaje']; ?></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php
+               // Se elimina el mensaje de la sesión para evitar que se muestre de nuevo
+               unset($_SESSION['mensaje']);
+            }
+            ?>
             <?php otrasCategorias() ?>
         </div>
     </div>

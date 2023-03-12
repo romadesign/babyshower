@@ -46,7 +46,7 @@
                                         <?php
                                         echo '- ', $descripcion;
                                         if ($estado == 0) { ?>
-                                            <div>&#x2713;</div>
+                                            <div class="check">&#x2713;</div>
                                         <?php } ?>
                                     </div>
                                 </div>

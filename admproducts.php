@@ -7,8 +7,9 @@
     </div>
     <br>
     <div class="row">
-        <div>
-            <button class="btn_categiria_Editar"> <a href="categoriesbyproducts.php"> Editar categorías</a></button>
+        <div class="d-flex">
+            <button class="btn_categiria_Editar w-100"> <a href="categoriesbyproducts.php"> Edit categorías</a></button>
+            <button class="btn_productos_comprados w-100"> <a href="editproductscomprados.php"> Edit productos comprados</a></button>
         </div>
         <?php getProductsadmin() ?>
     </div>

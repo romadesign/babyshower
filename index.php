@@ -8,26 +8,17 @@
         <img src="./img/fondo.jpg" />
         <h3>Faltan <span id="dias"></span> días para mi <strong>Baby shower</strong>!</h3>
         <div class="alert alert-light alert-dismissible fade show" role="alert">
-            <strong>Muchas gracias por visitar nuestra Lista de Nacimiento. </strong> Estamos muy emocionados de formar
-            nuestra familia y
-            de empezar con los preparativos para su llegada. La revelación del sexo será una sorpresa, por ello hemos
-            optado por elegir colores neutros y unisex. Para la habitación de nuestro bebé elegimos el color topo
-            (taupé), un tono inspirado en la tierra para crear un ambiente acogedor, natural y apacible, con
-            decoraciones y complementos en tonos neutros: blanco roto, gris claro, tierra, marrón y beige; y con cosas
-            compactas o adaptables a varios usos que nos resulta idóneo para nuestro hogar. Para nuestro bebé optamos
-            por usar en lo posible elementos ecológicos/ biodegradables/ reutilizables, productos y ropa sin
-            ingredientes/compuestos de origen animal. Te agradecemos por formar parte de esta celebración, por el
-            tiempo, por el amor y el cariño brindado. No podríamos ser más felices por la pronta llegada de nuestro
-            primer hijo/a al mundo. ¡Gracias por ser parte de nuestra felicidad!. Danitza & Roman
+            <strong>Muchas gracias por visitar nuestra Lista de Nacimiento. </strong>
+            Este es un momento muy especial en nuestras vidas, estamos muy emocionados de formar nuestra familia y de empezar con los preparativos para su llegada. Para nuestro bebé hemos optado por usar en lo posible elementos ecológicos/ biodegradables/ reutilizables, productos y ropa sin ingredientes/compuestos de origen animal. La revelación del sexo será una sorpresa, por ello hemos optado por elegir colores neutros y unisex. Para la habitación de nuestro bebé hemos elegido el color topo (taupé), un tono inspirado en la tierra para crear un ambiente acogedor, natural y apacible, con decoraciones y complementos en tonos neutros: blanco roto, gris claro, tierra, marrón y beige; y con cosas compactas o adaptables a varios usos que nos resulta idóneo para nuestro hogar. Estamos muy felices por la pronta llegada de nuestro primer hijo/a al mundo. ¡Gracias por ser parte de este día tan especial para nosotros, por el tiempo, por el amor y el cariño brindado!. <strong>Danitza & Roman</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     </div>
     <div class="content_data">
-        <strong>Categorías  </strong>
+        <strong>Categorías </strong>
         <div class="content_data_categorias">
             <?php getCategories() ?>
         </div>
-        <div >
+        <div>   
             <?php getTodosLosProductos() ?>
         </div>
     </div>

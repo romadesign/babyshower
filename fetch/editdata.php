@@ -63,7 +63,7 @@ function updateProduct()
           </div>
           <div class="d-flex">
             <button type="submit" name="update" class="btn btn-success w-100  m-1">Save</button>
-            <button type="button" class="btn btn-danger w-100  m-1"><a href="/index.php">Cancel</a></button>
+            <button type="button" class="btn btn-danger w-100  m-1"><a href="admproducts.php">Cancel</a></button>
           </div>
         </div>
 

@@ -1,4 +1,36 @@
 <?php
+
+function getProductscomprados()
+{
+  include('db/dbconnect.php');
+  $sql = "SELECT pc.id, p.title, p.img FROM products p
+          INNER JOIN purchases pc ON p.id = pc.product_id";
+  $result = mysqli_query($conn, $sql);
+  while ($row = mysqli_fetch_assoc($result)) {
+    $title = $row['title'];
+    $img = $row['img']; ?>
+    <table class="table">
+      <tbody>
+        <tr class="content_data_get">
+          <th scope="row"><?php echo $row['id'] ?></th>
+          <td><img class="image_product_width" src="<?php echo $img ?>"></td>
+          <td>
+            <p class="card-text fst-italic ">Title: <?php echo substr($title, 0, 100) ?> </p>
+          </td>
+          <td class="d-flex">
+            <button type="button" class="btn btn-danger" onclick="confirmDelete(<?php echo $row['id']  ?>)">
+              <i class="fas fa-trash"> </i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <?php }
+}
+
+
+
+
 function getProductsadmin()
 {
   include('db/dbconnect.php');
@@ -16,14 +48,20 @@ function getProductsadmin()
           <td>
             <p class="card-text fst-italic ">Title: <?php echo substr($title, 0, 100) ?> </p>
           </td>
-          <td>
-            <a href="editarproduct.php?id=<?php echo $row['id'] ?>"><i class="fas fa-edit"></i></a>
+          <td class="d-flex">
+            <a class="pe-3" href="editarproduct.php?id=<?php echo $row['id'] ?>"><i class="fas fa-edit"></i></a>
+            <button type="button" class="btn btn-danger" onclick="confirmDeleteproduct(<?php echo $row['id']  ?>)">
+              <i class="fas fa-trash"> </i>
+            </button>
           </td>
         </tr>
       </tbody>
     </table>
   <?php }
 }
+
+
+
 
 
 function listas()
@@ -42,8 +80,11 @@ function listas()
           <td>
             <p class="card-text fst-italic ">Title: <?php echo substr($descripcion, 0, 500) ?> </p>
           </td>
-          <td>
-            <a href="editarproductlist.php?id=<?php echo $id ?>"><i class="fas fa-edit"></i></a>
+          <td class="d-flex">
+            <a class="pe-3" href="editarproductlist.php?id=<?php echo $id ?>"><i class="fas fa-edit"></i></a>
+            <button type="button" class="btn btn-danger" onclick="confirmDeletelistadeunacategoria(<?php echo $id  ?>)">
+                  <i class="fas fa-trash"> </i>
+                </button>
           </td>
         </tr>
       </tbody>
@@ -66,8 +107,11 @@ function categorias_lista() //para editar categorias
           <td>
             <p class="card-text fst-italic ">Categoría: <strong> <?php echo substr($title, 0, 500) ?></strong> </p>
           </td>
-          <td>
-            <a href="editcategorias.php?id=<?php echo $id ?>"><i class="fas fa-edit"></i></a>
+          <td class="d-flex">
+            <a class="pe-3" href="editcategorias.php?id=<?php echo $id ?>"><i class="fas fa-edit"></i></a>
+            <button type="button" class="btn btn-danger" onclick="confirmDeletecategorialista(<?php echo $id  ?>)">
+              <i class="fas fa-trash"> </i>
+            </button>
           </td>
         </tr>
       </tbody>
@@ -167,12 +211,23 @@ function getListas()
               <a href="" class="button-position btn btn-primary-comprado">Comprado &#x2713; </a>
             <?php } else { ?>
               <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
+              <!-- comprar producto -->
+              <button type="button" class="botton_add" onclick="comprarItems(<?php echo $id ?>)">
+                ¿Compraste este producto?
+              </button>
             <?php } ?>
           </div>
         </div>
       </div>
     </div>
+
   <?php } ?>
+  <!-- Modal -->
+  <div id="editmodals">
+    <div class="modal-body" id="edit_modals_user">
+      <!-- Aquí se cargará el formulario de edición -->
+    </div>
+  </div>
 </div>
 <div class="content_pagination">
   <!-- Pagination button -->
@@ -316,8 +371,18 @@ function getListas()
                   <a href="" class="button-position btn btn-primary-comprado">Comprado &#x2713; </a>
                 <?php } else { ?>
                   <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
+                  <!-- comprar producto -->
+                  <button type="button" class="botton_add" onclick="comprarItems(<?php echo $id ?>)">
+                    ¿Compraste este producto?
+                  </button>
                 <?php } ?>
               </div>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div id="editmodals">
+            <div class="modal-body" id="edit_modals_user">
+              <!-- Aquí se cargará el formulario de edición -->
             </div>
           </div>
         </div>
@@ -338,7 +403,7 @@ function getListas()
         $id_get = $_GET["id"];
         $sql = "SELECT p.* FROM products p
           LEFT JOIN purchases c ON p.id = c.product_id
-          WHERE c.id IS $id_get  AND p.status = 1";
+          WHERE c.id IS $id_get  AND p.status = 1 ";
         $result = $conn->query($sql);
         while ($row = mysqli_fetch_assoc($result)) {
           $id = $row['id'];
@@ -361,11 +426,22 @@ function getListas()
                     <a href="" class="button-position btn btn-primary-comprado">Comprado &#x2713; </a>
                   <?php } else { ?>
                     <a href="<?php echo $url ?>" class="btn btn-primary">Mirar producto</a>
+                    <!-- comprar producto -->
+                    <button type="button" class="botton_add" onclick="comprarItems(<?php echo $id ?>)">
+                      ¿Compraste este producto?
+                    </button>
                   <?php } ?>
                 </div>
               </div>
             </div>
+            <!-- Modal -->
+            <div id="editmodals">
+              <div class="modal-body" id="edit_modals_user">
+                <!-- Aquí se cargará el formulario de edición -->
+              </div>
+            </div>
           </div>
+
     <?php
         }
       }
@@ -389,8 +465,11 @@ function getListas()
               <td>
                 <p class="card-text fst-italic ">Categoría: <strong> <?php echo $nombre ?></strong></p>
               </td>
-              <td>
-                <a href="editcategorieproduct.php?id=<?php echo $id ?>"><i class="fas fa-edit"></i></a>
+              <td class="d-flex">
+                <a class="pe-3" href="editcategorieproduct.php?id=<?php echo $id ?>"><i class="fas fa-edit"></i></a>
+                <button type="button" class="btn btn-danger" onclick="confirmDeletecategoria(<?php echo $id  ?>)">
+                  <i class="fas fa-trash"> </i>
+                </button>
               </td>
             </tr>
           </tbody>
@@ -400,59 +479,60 @@ function getListas()
 
     ?>
 
-    <?php 
-    function navbar(){?>
-      
-<nav class="navbar navbar-expand-lg ">
-<div class="accordion accordion-flush" id="accordionFlushExample">
-    <div class="accordion-item">
-        <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-            <h2 class="accordion-header" id="flush-headingOne">
+    <?php
+    function navbar()
+    { ?>
+
+      <nav class="navbar navbar-expand-lg ">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion-item">
+            <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              <h2 class="accordion-header" id="flush-headingOne">
                 Listas
-            </h2>
-            <i class="fa-solid fa-bars"></i>
-        </div>
-        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <?php
-            include('db/dbconnect.php');
-            $sql = "SELECT * FROM `listas`";
-            $result = mysqli_query($conn, $sql);
-            while ($row = mysqli_fetch_assoc($result)) {
+              </h2>
+              <i class="fa-solid fa-bars"></i>
+            </div>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+              <?php
+              include('db/dbconnect.php');
+              $sql = "SELECT * FROM `listas`";
+              $result = mysqli_query($conn, $sql);
+              while ($row = mysqli_fetch_assoc($result)) {
                 $id = $row['id'];
                 $title = $row['title'];
-            ?>
+              ?>
                 <div class="subtitlemenu"><?php echo $title ?> :</div>
                 <div class="accordion-body acordion_data">
-                    <?php
-                    $sql = "SELECT * FROM `product_list` WHERE list_id =  $id";
-                    $sel_query = mysqli_query($conn, $sql)  or die(mysqli_error($conn));
-                    while ($row = mysqli_fetch_assoc($sel_query)) {
-                        $id = $row['id'];
-                        $estado = $row['estado'];
-                        $descripcion = $row['descripcion']; ?>
-                        <div>
-                            <div class="d-flex gap-3 ">
-                                <?php
-                                echo '- ', $descripcion;
-                                if ($estado == 0) { ?>
-                                    <div>&#x2713;</div>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    <?php } ?>
+                  <?php
+                  $sql = "SELECT * FROM `product_list` WHERE list_id =  $id";
+                  $sel_query = mysqli_query($conn, $sql)  or die(mysqli_error($conn));
+                  while ($row = mysqli_fetch_assoc($sel_query)) {
+                    $id = $row['id'];
+                    $estado = $row['estado'];
+                    $descripcion = $row['descripcion']; ?>
+                    <div>
+                      <div class="d-flex gap-3 ">
+                        <?php
+                        echo '- ', $descripcion;
+                        if ($estado == 0) { ?>
+                          <div>&#x2713;</div>
+                        <?php } ?>
+                      </div>
+                    </div>
+                  <?php } ?>
                 </div>
-            <?php } ?>
+              <?php } ?>
+            </div>
+          </div>
+
         </div>
-    </div>
 
-</div>
-
-<div class="day">
-    <div id="day_data">
-        40 dias
-    </div>
-</div>
-</nav>
+        <div class="day">
+          <div id="day_data">
+            40 dias
+          </div>
+        </div>
+      </nav>
     <?php }
-    
+
     ?>

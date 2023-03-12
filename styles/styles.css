@@ -334,3 +334,70 @@ h2.text-center {
 .btn_categiria_Editar{
     border: 0;
 }
+
+
+#editmodals {
+    display: none;
+}
+
+#edit_modals_user {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 85vh !important;
+    width: 94% !important;
+    position: fixed !important;
+    top: 64px !important;
+    background: #ffffff;
+    z-index: 100;
+}
+
+
+
+form#modal_edit {
+    width: 85%;
+}
+
+.content_button {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+button.botton_add {
+    color: #00569c;
+    border: 0;
+    font-size: 0.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    background: transparent;
+}
+
+form#modal_edit h5 {
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 700;
+    color: #786051;
+}
+
+.check{
+    color: #ffffff;
+    font-weight: bold;
+    background: #997863;
+    width: 15px;
+    height: 15px;
+    border-radius: 2rem;
+    font-size: 0.5rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.btn_productos_comprados{
+    border: 0;
+}
+.btn_productos_comprados a{
+    background-color: green;
+    padding: 0 1rem;
+    color: white;
+}
